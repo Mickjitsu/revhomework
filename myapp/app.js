@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const axios = require('axios');
+const cors = require('cors');
 
 const port = 3000;
 
@@ -21,60 +22,68 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors({
+  origin: '*', 
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
 app.post('/create-token', (req, res) => {
-    createToken()
+  createToken()
       .then(tokenData => {
-        res.json(tokenData); // Send JSON response
+          console.log('Server-side response data:', tokenData); 
+          res.json(tokenData); 
+          console.log('Response successful');
       })
       .catch(error => {
-        res.status(500).send(error.message);
+          console.error('Error in /create-token route:', error);
+          res.status(500).send('Internal Server Error');
       });
-  });
+});
 
 
   function createToken() {
-    const data = JSON.stringify({
-      "amount": 500,
+    let data = JSON.stringify({
+      "amount": 1,
       "currency": "GBP"
     });
-  
-    const config = {
+    
+    let config = {
       method: 'post',
       maxBodyLength: Infinity,
       url: 'https://sandbox-merchant.revolut.com/api/orders',
       headers: { 
         'Content-Type': 'application/json', 
+        'Revolut-Api-Version': '2024-05-01', 
         'Accept': 'application/json', 
-        'Authorization': 'Bearer sk_1ek7aDJefqKpmisI0Whgi59GBtQkTRivOFEQcHZui10G2_-LFS-oinjBMeHPi79r'
+        'Authorization': 'Bearer sk_cPizZOUHfQF_Opg8TNrDAUMwDTepl4sRMq1N3oUwh_hhbbv7EkEAD6NFERK7xMkN'
       },
-      data: data
+      data : data
     };
-  
+    
     return axios(config)
-      .then(response => response.data)
-      .catch(error => {
-        console.error('Error creating token:', error);
-        throw new Error('Error creating token');
-      });
+        .then(response => {
+            console.log('Server-side response data:', JSON.stringify(response.data));
+            return response.data; 
+        })
+        .catch(error => {
+            console.error('Server-side error:', error);
+            throw error; 
   }
-  
-  // catch 404 and forward to error handler
+        )}
 app.use(function(req, res, next) {
     next(createError(404));
   });
   
-  // error handler
+
   app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
+    
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
   
-    // render the error page
+
     res.status(err.status || 500);
     res.render('error');
   });
