@@ -6,6 +6,7 @@ var logger = require('morgan');
 const axios = require('axios');
 const cors = require('cors');
 
+
 const port = 3000;
 
 var indexRouter = require('./routes/index');
@@ -73,6 +74,7 @@ app.post('/create-token', (req, res) => {
             throw error; 
   }
         )}
+
 app.use(function(req, res, next) {
     next(createError(404));
   });
@@ -87,6 +89,7 @@ app.use(function(req, res, next) {
     res.status(err.status || 500);
     res.render('error');
   });
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

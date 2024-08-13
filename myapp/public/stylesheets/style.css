@@ -39,3 +39,30 @@ h1{
   margin-bottom: 10px;
   margin-right: 10px;
 }
+
+.hidden{
+  display:none;
+}
+
+#payment-modal {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: fixed; /* Position fixed to stay over content */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the modal */
+  z-index: 100; /* High z-index to ensure it appears above other elements */
+  top: 10;
+}
+.payment{
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  background: lightgray;
+  align-items: center;
+}
+
+#pay-button{
+  margin-top: 40%;
+}
