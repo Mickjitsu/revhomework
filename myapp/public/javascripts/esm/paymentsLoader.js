@@ -1,6 +1,6 @@
-import { MODE, URLS } from './constants';
-import { getVersionedUrl, loadModule } from './utils';
-import { RevolutPaymentsVersionLoader } from './versionLoader';
+import { MODE, URLS } from './constants.js';
+import { getVersionedUrl, loadModule } from './utils.js';
+import { RevolutPaymentsVersionLoader } from './versionLoader.js';
 var loadedPaymentInstance = null;
 export function RevolutPaymentsLoader(token, mode, locale) {
     if (mode === void 0) { mode = RevolutPaymentsLoader.mode; }

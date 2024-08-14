@@ -1,8 +1,8 @@
-import { MODE, URLS } from './constants';
-import { RevolutPaymentsLoader } from './paymentsLoader';
-import { getVersionedUrl, loadModule } from './utils';
-import { RevolutUpsellLoader } from './upsellLoader';
-import { RevolutPaymentsVersionLoader } from './versionLoader';
+import { MODE, URLS } from './constants.js';
+import { RevolutPaymentsLoader } from './paymentsLoader.js';
+import { getVersionedUrl, loadModule } from './utils.js';
+import { RevolutUpsellLoader } from './upsellLoader.js';
+import { RevolutPaymentsVersionLoader } from './versionLoader.js';
 var loaded = null;
 /**
  * Load [`RevolutCheckout.js`](https://developer.revolut.com/docs/revolut-checkout-js/#revolutcheckout)

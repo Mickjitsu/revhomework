@@ -59,7 +59,7 @@ app.post('/create-token', (req, res) => {
         'Content-Type': 'application/json', 
         'Revolut-Api-Version': '2024-05-01', 
         'Accept': 'application/json', 
-        'Authorization': 'Bearer '
+        'Authorization': 'Bearer sk_4pR_21QT9ebwwDxGe6ZYk9-tmTFz2nZVeXABmXYpiy_lwV8BOXdqZj8QiGl01ndf'
       },
       data : data
     };

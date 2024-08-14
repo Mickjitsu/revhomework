@@ -1,4 +1,4 @@
-import { REVOLUT_PAY_ORDER_ID_URL_PARAMETER, REVOLUT_PAY_SUCCESS_REDIRECT_URL_PARAMETER, REVOLUT_PAY_FAILURE_REDIRECT_URL_PARAMETER, } from './constants';
+import { REVOLUT_PAY_ORDER_ID_URL_PARAMETER, REVOLUT_PAY_SUCCESS_REDIRECT_URL_PARAMETER, REVOLUT_PAY_FAILURE_REDIRECT_URL_PARAMETER, } from './constants.js';
 var getSearchParamsByName = function (name) {
     return new URLSearchParams(window.location.search).get(name);
 };

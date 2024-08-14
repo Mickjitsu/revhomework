@@ -1,4 +1,4 @@
-import { LOCALES } from './constants';
+import { LOCALES } from './constants.js';
 export function isValidationError(error) {
     return error != null && error.name === 'Validation';
 }
