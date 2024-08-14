@@ -10,7 +10,11 @@ const accessKey = process.env.ACCESS_KEY;
 
 
 
-const port = 3000;
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -94,9 +98,5 @@ app.use(function(req, res, next) {
     res.render('error');
   });
 
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
 
 module.exports = app;
