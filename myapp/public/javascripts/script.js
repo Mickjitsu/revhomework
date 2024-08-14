@@ -1,4 +1,4 @@
-import RevolutCheckout from "@revolut/checkout"
+
 document.addEventListener('DOMContentLoaded', () => {
     const proceed = document.getElementById('proceed');
     const paymentModal = document.getElementById('payment-modal');
@@ -30,10 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error:', error);
       });
     });
-
-    RevolutCheckout(orderToken).then(function (instance){
-      console.log('checkout initialised')
-      })
 
      /*
     RevolutCheckout(token).then(function (instance) {
