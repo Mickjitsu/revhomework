@@ -5,16 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const axios = require('axios');
 const cors = require('cors');
-require('dotenv').config();
-const accessKey = process.env.ACCESS_KEY;
 
 
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
+const port = 3000;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -53,7 +46,6 @@ app.post('/create-token', (req, res) => {
 
 
   function createToken() {
-    console.log('AccessKey:', accessKey)
     let data = JSON.stringify({
       "amount": 1,
       "currency": "GBP"
@@ -67,7 +59,7 @@ app.post('/create-token', (req, res) => {
         'Content-Type': 'application/json', 
         'Revolut-Api-Version': '2024-05-01', 
         'Accept': 'application/json', 
-        'Authorization': `Bearer sk_zo5QXdUHTMkWLtBkLFqA6wdLnpyjNYt2SfsRIibi9NdeFjHCwdKoYFvSQwueFnMH`
+        'Authorization': 'Bearer sk_4pR_21QT9ebwwDxGe6ZYk9-tmTFz2nZVeXABmXYpiy_lwV8BOXdqZj8QiGl01ndf'
       },
       data : data
     };
@@ -98,5 +90,9 @@ app.use(function(req, res, next) {
     res.render('error');
   });
 
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
 
 module.exports = app;
