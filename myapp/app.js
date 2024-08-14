@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const axios = require('axios');
 const cors = require('cors');
-
+const accessKey = process.env.ACCESS_KEY;
 
 const port = 3000;
 
@@ -59,7 +59,7 @@ app.post('/create-token', (req, res) => {
         'Content-Type': 'application/json', 
         'Revolut-Api-Version': '2024-05-01', 
         'Accept': 'application/json', 
-        'Authorization': 'Bearer sk_zo5QXdUHTMkWLtBkLFqA6wdLnpyjNYt2SfsRIibi9NdeFjHCwdKoYFvSQwueFnMH'
+        'Authorization': `Bearer ${accessKey}`
       },
       data : data
     };
