@@ -30,17 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         RevolutCheckout(orderToken, "sandbox").then(function (instance) {
     
-          // On click open payment pop-up
+          
           payButton.addEventListener("click", function () {
             console.log('button clicked!')
             instance.payWithPopup({
               email: "example.customer@example.com",
               onSuccess() {
-                // Do something to handle successful payments
+               
                 window.alert("Thank you!")
               },
               onError(error) {
-                // Do something to handle successful payments
+          
                 window.alert(`Something went wrong. ${error}`)
               }
             })
