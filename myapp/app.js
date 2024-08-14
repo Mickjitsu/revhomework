@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const axios = require('axios');
 const cors = require('cors');
+require('dotenv').config();
+const accessKey = process.env.ACCESS_KEY;
+
 
 
 const port = 3000;
@@ -46,6 +49,7 @@ app.post('/create-token', (req, res) => {
 
 
   function createToken() {
+    console.log('AccessKey:', accessKey)
     let data = JSON.stringify({
       "amount": 1,
       "currency": "GBP"
@@ -59,7 +63,7 @@ app.post('/create-token', (req, res) => {
         'Content-Type': 'application/json', 
         'Revolut-Api-Version': '2024-05-01', 
         'Accept': 'application/json', 
-        'Authorization': 'Bearer sk_4pR_21QT9ebwwDxGe6ZYk9-tmTFz2nZVeXABmXYpiy_lwV8BOXdqZj8QiGl01ndf'
+        'Authorization': `Bearer ${accessKey}`
       },
       data : data
     };
