@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const axios = require('axios');
 const cors = require('cors');
+require('dotenv').config();
 const accessKey = process.env.ACCESS_KEY;
 
 const port = 3000;
