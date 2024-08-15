@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
           
           payButton.addEventListener("click", function () {
-            console.log('button clicked!')
             instance.payWithPopup({
               email: "example.customer@example.com",
               onSuccess() {

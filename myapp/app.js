@@ -47,7 +47,7 @@ app.post('/create-token', (req, res) => {
 
   function createToken() {
     let data = JSON.stringify({
-      "amount": 1,
+      "amount": 100,
       "currency": "GBP"
     });
     
